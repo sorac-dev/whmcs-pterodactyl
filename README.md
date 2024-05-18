@@ -1,89 +1,89 @@
 ## WHMCS
 
-WHMCS Module for the [Pterodactyl Panel](https://github.com/pterodactyl/panel/).
+Módulo WHMCS para el [Panel Pterodactyl](https://github.com/pterodactyl/panel/).
 
-## Configuration support
+## Soporte de configuración
 
-Please use the [Pterodactyl Discord](https://discord.gg/pterodactyl) for configuration related support instead of GitHub issues.
+Por favor, utiliza el [Discord de Pterodactyl](https://discord.gg/pterodactyl) para soporte relacionado con la configuración en lugar de los issues de GitHub.
 
-## NOTE
+## NOTA
 
-This module requires the panel to be on version 1.0.0 and above, if you need one for the 0.7.x versions, check the [0.7 branch.](https://github.com/pterodactyl/whmcs/tree/0.7)
+Este módulo requiere que el panel esté en la versión 1.0.0 o superior. Si necesitas uno para las versiones 0.7.x, revisa la [rama 0.7.](https://github.com/pterodactyl/whmcs/tree/0.7)
 
-## Installation
+## Instalación
 
-[Video Tutorial](https://www.youtube.com/watch?v=wURpRD9vfj4) (uses 0.7 version of the panel but nothing changed functionality wise)
+[Tutorial en Video](https://www.youtube.com/watch?v=wURpRD9vfj4) (usa la versión 0.7 del panel pero no ha cambiado nada en cuanto a funcionalidad)
 
-1. Download/Git clone this repository.
-2. Move the ``pterodactyl/`` folder into ``<path to whmcs>/modules/servers/``.
-3. Create API Credentials with these permissions: ![Image](https://i.imgur.com/oeoTyBO.png)
-4. In WHMCS 8+ navigate to System Settings → Servers. In WHMCS 7 or below navigate to Setup → Products/Services → Servers
-5. Create new server, fill the name with anything you want, hostname as the url to the panel either as an IP or domain. For example: ``123.123.123.123`` or ``my.pterodactyl.panel``
-6. Change Server Type to Pterodactyl, leave username empty, fill the password field with your generated API Key.
-7. Tick the "Secure" option if your panel is using SSL.
-8. Confirm that everything works by clicking the Test Connection button -> Save Changes.
-9. Go back to the Servers screen and press Create New Group, name it anything you want and choose the created server and press the Add button, Save Changes.
-10. Navigate to Setup > Products/Services > Products/Services
-11. Create your desired product (and product group if you haven't already) with the type of Other and product name of anything -> Continue.
-12. Click the Module Settings tab, choose for Module Name Pterodactyl and for the Server Group the group you created in step 8.
-13. Fill all non-optional fields, and you are good to go!
+1. Descarga/Clona este repositorio.
+2. Mueve la carpeta ``pterodactyl/`` a ``<ruta a whmcs>/modules/servers/``.
+3. Crea Credenciales API con estos permisos: ![Imagen](https://i.imgur.com/oeoTyBO.png)
+4. En WHMCS 8+ navega a Configuración del Sistema → Servidores. En WHMCS 7 o inferior navega a Configuración → Productos/Servicios → Servidores.
+5. Crea un nuevo servidor, llena el nombre con lo que desees, el nombre del host como la URL del panel ya sea como IP o dominio. Por ejemplo: ``123.123.123.123`` o ``mi.pterodactyl.panel``
+6. Cambia el Tipo de Servidor a Pterodactyl, deja el nombre de usuario vacío, llena el campo de contraseña con tu clave API generada.
+7. Marca la opción "Seguro" si tu panel está usando SSL.
+8. Confirma que todo funciona haciendo clic en el botón Probar Conexión -> Guardar Cambios.
+9. Regresa a la pantalla de Servidores y presiona Crear Nuevo Grupo, nómbralo como desees y elige el servidor creado y presiona el botón Añadir, Guardar Cambios.
+10. Navega a Configuración > Productos/Servicios > Productos/Servicios.
+11. Crea tu producto deseado (y grupo de productos si aún no lo has hecho) con el tipo Otro y nombre del producto como desees -> Continuar.
+12. Haz clic en la pestaña Configuración del Módulo, elige como Nombre del Módulo Pterodactyl y para el Grupo de Servidores el grupo que creaste en el paso 8.
+13. Llena todos los campos no opcionales, ¡y listo!
 
-## Credits
+## Créditos
 
-[Dane](https://github.com/DaneEveritt) and [everyone else](https://github.com/Pterodactyl/Panel/graphs/contributors) involved in development of the Pterodactyl Panel.
-[death-droid](https://github.com/death-droid) for the original WHMCS module.
-[Crident](https://crident.com) for providing me a dev environment to test the module on and the installation video.
+[Dane](https://github.com/DaneEveritt) y [todos los demás](https://github.com/Pterodactyl/Panel/graphs/contributors) involucrados en el desarrollo del Panel Pterodactyl.
+[death-droid](https://github.com/death-droid) por el módulo WHMCS original.
+[Crident](https://crident.com) por proporcionarme un entorno de desarrollo para probar el módulo y el video de instalación.
 
 # FAQ
 
-## Migrating from death-droid's module
+## Migrar desde el módulo de death-droid
 
-Migrating is simple, delete death-droid's module and then upload this one instead of it.
-Then do the steps 3-6 in Installation instructions above and resetup all products.
+Migrar es simple, elimina el módulo de death-droid y luego sube este en su lugar.
+Luego haz los pasos 3-6 en las instrucciones de Instalación arriba y reconfigura todos los productos.
 
-## Overwriting values through configurable options
+## Sobrescribir valores a través de opciones configurables
 
-Overwriting values can be done through either Configurable Options or Custom Fields.
+Sobrescribir valores se puede hacer a través de Opciones Configurables o Campos Personalizados.
 
-Their name should be exactly what you want to overwrite.
-dedicated_ip => Will overwrite dedicated_ip if its ticked or not.
-Valid options: ``server_name, memory, swap, io, cpu, disk, nest_id, egg_id, pack_id, location_id, dedicated_ip, port_range, image, startup, databases, allocations, backups, oom_disabled, username``
+Sus nombres deben ser exactamente lo que deseas sobrescribir.
+dedicated_ip => Sobrescribirá dedicated_ip si está marcado o no.
+Opciones válidas: ``server_name, memory, swap, io, cpu, disk, nest_id, egg_id, pack_id, location_id, dedicated_ip, port_range, image, startup, databases, allocations, backups, oom_disabled, username``
 
-This also works for any name of environment variable:
-Player Slots => Will overwrite the environment variable named "Player Slots" to its value.
+Esto también funciona para cualquier nombre de variable de entorno:
+Player Slots => Sobrescribirá la variable de entorno llamada "Player Slots" a su valor.
 
-Useful trick: You can use the | seperator to change the display name of the variable like this:
-dedicated_ip|Dedicated IP => Will be displayed as "Dedicated IP" but will work correctly.
+Truco útil: Puedes usar el separador | para cambiar el nombre visible de la variable así:
+dedicated_ip|Dedicated IP => Se mostrará como "Dedicated IP" pero funcionará correctamente.
 
-[Sample configuration for configurable memory](https://owo.whats-th.is/85JwhVX.png)
+[Configuración de ejemplo para memoria configurable](https://owo.whats-th.is/85JwhVX.png)
 
-## Couldn't find any nodes satisfying the request
+## No se encontraron nodos que satisfagan la solicitud
 
-This can be caused from any of the following: Wrong location, not enough disk space/CPU/RAM, or no allocations matching the provided criteria.
+Esto puede ser causado por cualquiera de los siguientes: Ubicación incorrecta, no hay suficiente espacio en disco/CPU/RAM, o no hay asignaciones que coincidan con los criterios proporcionados.
 
-## The username/password field is empty, how does the user get credentials?
+## El campo de nombre de usuario/contraseña está vacío, ¿cómo obtiene el usuario las credenciales?
 
-The customer gets an email from the panel to setup their account (incl. password) if they didn't have an account before. Otherwise they should be able to use their existing credentials.
+El cliente recibe un correo del panel para configurar su cuenta (incl. contraseña) si no tenía una cuenta antes. De lo contrario, debería poder usar sus credenciales existentes.
 
-## The customer didn't receive any emails from the panel
+## El cliente no recibió ningún correo del panel
 
-Double check that you've configured the panel's mail settings correctly, the Test button works in the admin area's mail settings, and that you've restarted pteroq afterwards confirming that everything works.
+Verifica que hayas configurado correctamente los ajustes de correo del panel, que el botón de Prueba funciona en la configuración de correo del área de administración, y que has reiniciado pteroq después confirmando que todo funciona.
 
-## My game requires multiple ports allocated
+## Mi juego requiere múltiples puertos asignados
 
-Currently, this isn't possible with this module but is planned.
+Actualmente, esto no es posible con este módulo pero está planeado.
 
-## The server gets assigned to the first/admin user of the panel instead of the user who ordered the service
+## El servidor se asigna al primer usuario/administrador del panel en lugar del usuario que ordenó el servicio
 
-Please update your module (by redownloading it).
+Por favor, actualiza tu módulo (redescargándolo).
 
-## The feature_limits.backups field must be present
+## El campo feature_limits.backups debe estar presente
 
-Please update your module (by redownloading it).
+Por favor, actualiza tu módulo (redescargándolo).
 
-## How to enable module debug log
+## Cómo habilitar el registro de depuración del módulo
 
-1. In WHMCS 7 or below navigate to Utilities > Logs > Module Log. For WHMCS 8.x navigate to System Logs > Module Log in the left sidebar.
-2. Click the Enable Debug Logging button.
-3. Do the action that failed again and you will have required logs to debug the issue. All 404 errors can be ignored.
-4. Remember to Disable Debug Logging if you are using this in production, as it's not recommended to have it enabled.
+1. En WHMCS 7 o inferior navega a Utilidades > Registros > Registro del Módulo. Para WHMCS 8.x navega a Registros del Sistema > Registro del Módulo en la barra lateral izquierda.
+2. Haz clic en el botón Habilitar Registro de Depuración.
+3. Realiza la acción que falló nuevamente y tendrás los registros necesarios para depurar el problema. Todos los errores 404 pueden ser ignorados.
+4. Recuerda Deshabilitar el Registro de Depuración si estás usando esto en producción, ya que no se recomienda tenerlo habilitado.
